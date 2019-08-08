@@ -14,6 +14,17 @@ If you typed the URL of this page manually, please double check that you entered
 {{/if}}
 {{{page.contents}}}
 {{/if}}
+<div class="navbar-item">
+  {{#if page.parent}}
+  <span class="control"><a class="button is-primary" href="{{{siteRootPath}}}{{{page.parent.url}}}">Parent</a></span>&nbsp;&nbsp;
+  {{/if}}
+  {{#if page.previous}}
+  <span class="control"><a class="button is-primary" href="{{{siteRootPath}}}{{{page.previous.url}}}">Prev</a></span>&nbsp;&nbsp;
+  {{/if}}
+  {{#if page.next}}
+  <span class="control"><a class="button is-primary" href="{{{siteRootPath}}}{{{page.next.url}}}">Next</a></span>
+  {{/if}}
+</div>
 </article>
 <aside class="article-aside hidden" role="navigation">
   <h3 class="toc-title">On this page</h3>
