@@ -28,13 +28,13 @@
 }
 
 .doc > h1.page:first-child {
-  font-size: calc(36 / var(--rem-base) * 1rem);
+  font-size: calc(36 / var(--rem-base) * 1.5rem);
   margin: 1.5rem 0;
 }
 
 @media screen and (min-width: 769px) {
   .doc > h1.page:first-child {
-    margin-top: 2.5rem;
+    margin-top: 1rem;
   }
 }
 
@@ -85,7 +85,7 @@
 .doc h4:hover .anchor,
 .doc h5:hover .anchor,
 .doc h6:hover .anchor {
-  visibility: visible;
+  visibility: none;
 }
 
 .doc p {
