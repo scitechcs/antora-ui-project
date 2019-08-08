@@ -1,4 +1,15 @@
 <main role="main">
 {{> toolbar}}
 {{> article}}
+<div class="navbar-item">
+  {{#if page.parent}}
+  <span class="control"><a class="button is-primary" href="{{{siteRootPath}}}{{{page.parent.url}}}">Parent</a></span>&nbsp;&nbsp;
+  {{/if}}
+  {{#if page.previous}}
+  <span class="control"><a class="button is-primary" href="{{{siteRootPath}}}{{{page.previous.url}}}">Prev</a></span>&nbsp;&nbsp;
+  {{/if}}
+  {{#if page.next}}
+  <span class="control"><a class="button is-primary" href="{{{siteRootPath}}}{{{page.next.url}}}">Next</a></span>
+  {{/if}}
+</div>
 </main>
