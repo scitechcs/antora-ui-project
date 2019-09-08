@@ -1,82 +1,181 @@
-@page {
-  margin: 0.5in;
-}
-
+/*  ---- PRINT MEDIA STYLES ---- */
 @media print {
-  .hide-for-print {
-    display: none !important;
-  }
 
-  html {
-    font-size: var(--body-font-size--print);
-  }
 
-  a {
-    color: inherit !important;
-    text-decoration: underline;
-  }
+/* ---- element visibility helper styles ----*/
+/*
+body.article {border: 1px solid red; padding-top: 0; padding-bottom: 0; height: auto;}
+header {border: 1px dashed lightgreen; height: auto;}
+.body {border: 1px dashed magenta; height: auto; padding: 0;}
+main {border: 1px solid lime; height: auto; padding: 0; margin: 0;}
+.toolbar {border: 1px solid purple;}
+article.doc {border: 1px dotted green; }
+*/
 
-  a.bare,
-  a[href^="#"],
-  a[href^="mailto:"] {
-    text-decoration: none;
-  }
 
-  tr,
-  img,
-  object,
-  svg {
-    page-break-inside: avoid;
-  }
 
-  thead {
-    display: table-header-group;
-  }
+/* ---- page layouts start ---- */
 
-  pre {
-    hyphens: none;
-    white-space: pre-wrap;
-  }
+body.article {padding-top: 0; padding-bottom: 0; height: auto;}
+header {height: auto;}
+.body {height: auto; padding: 0;}
+main {height: auto; padding: 0; margin: 0;}
 
-  body {
-    padding-top: 2rem;
-  }
+article.doc { margin-top: 0;}
 
-  .navbar {
-    background: none;
-    color: inherit;
-    position: absolute;
-  }
 
-  .navbar * {
-    color: inherit !important;
-  }
+    @page {
+        font-size: 11pt;
+        size: us-letter;
+        margin-top: 2cm;
+        margin-bottom: 2cm;
+        margin-inside: 3cm;
+        margin-outside: 2cm;
+    }
 
-  #topbar-nav,
-  .nav-container,
-  .toolbar {
-    display: none;
-  }
+    @page body:left {
+        @bottom-left {
+            content: "Page " counter(page);
+            vertical-align: middle;
+            font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
 
-  .doc {
-    color: inherit;
-    margin: auto;
-    max-width: none;
-    padding-bottom: 2rem;
-  }
+        }
+        @bottom-right {
+            content: "Chapter " counter(chapter) ": " string(chapter);
+            vertical-align: middle;
+            font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
 
-  .doc .listingblock code[data-lang]::before {
-    display: block;
-  }
+        }
+    }
+    @page body:right {
+        @bottom-right {
+            content: "Page " counter(page);
+            vertical-align: middle;
+            font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+        }
+        @bottom-left {
+            content: "Prospector User Guide";
+            vertical-align: middle;
+            font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
 
-  footer.footer {
-    background: none;
-    border-top: 1px solid var(--panel-border-color);
-    color: var(--quote-attribution-font-color);
-    padding: 0.5rem;
-  }
+        }
+    }
 
-  .footer * {
-    color: inherit;
-  }
+    @page body {
+        border-bottom: thin black solid;
+    }
+
+    /* Showing this removes the generated footer text from the first page of the topic
+    @page body:first {
+        margin-top: 10%;
+        @bottom-left { content: normal; }
+        @bottom-right { content: normal; }
+        border: none;
+    }
+
+    */
+    @page body:blank {
+        @bottom-left { content: normal; }
+        @bottom-right { content: normal; }
+        border: none;
+    }
+
+        .doc>h1::before {content: "Chapter " counter(chapter) ": ";}
+
+
+
+
+
+/*This rule adds an empty element forcing an additional page to appear before each topic*/
+    div.body h1 {
+        break-before: right;
+        prince-page-group: start;
+        string-set: chapter content();
+        counter-increment: chapter;
+        counter-reset: section;
+    }
+
+
+
+
+
+    div.body h2 {
+        string-set: section content();
+        counter-increment: section;
+    }
+    div.body h2::before {
+        content: counter(chapter) "." counter(section) " ";
+    }
+    */
+
+/* ---- page layouts end ---- */
+
+
+
+    .hide-for-print {
+        display: none !important
+    }
+
+    html {
+        font-size: .9375em
+        font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+    }
+
+    article {padding: 0;}
+
+    .doc>h1.page:first-child {font-size: 30pt; margin-top: 0; position: relative; bottom: 20pt;} /* Sets the topic heading size */
+
+    a {
+        color: inherit !important;
+        text-decoration: underline
+    }
+
+    a.bare,
+    a[href^="#"],
+    a[href^="mailto:"] {
+        text-decoration: none
+    }
+
+
+    #topbar-nav,
+    .nav-container, .toolbar, .navbar, .navbar-item, header, footer  {display: none}
+
+
+    div.body {
+        page: body;
+    }
+
+
+
+    .doc {
+        color: inherit;
+        margin: auto;
+        max-width: none;
+        padding-bottom: 2rem
+    }
+
+    .doc .listingblock code[data-lang]:before {
+        display: block
+    }
+
+   img,
+    object,
+    svg,
+    tr {
+        page-break-inside: avoid
+    }
+
+    thead {
+        display: table-header-group
+    }
+
+    pre {
+        -webkit-hyphens: none;
+        -ms-hyphens: none;
+        hyphens: none;
+        white-space: pre-wrap
+    }
+
 }
+
+/* ---- END PRINT STYLES ---- */
