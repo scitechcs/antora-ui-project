@@ -96,7 +96,6 @@ article.doc {border: 1px dotted green; }
     }
   }
 
-
   @page body:right {
     @bottom-right {
       content: "Page " counter(page);
@@ -110,8 +109,6 @@ article.doc {border: 1px dotted green; }
       font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
     }
   }
-
-
 
   /* Showing this removes the generated footer text from the first page of the topic
 @page body:first {
@@ -148,7 +145,7 @@ article.doc {border: 1px dotted green; }
   }
 
   /* Splits the cover page into a front and back with colophon.adoc on the back */
-    #cover-legal { break-before: page; }
+  #cover-legal { break-before: page; }
 
   /* ---- page layouts end ---- */
 
