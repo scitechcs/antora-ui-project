@@ -1,9 +1,8 @@
 /*  ---- PRINT MEDIA STYLES ---- */
 @media print {
 
-
-/* ---- element visibility helper styles ----*/
-/*
+  /* ---- element visibility helper styles ---- */
+  /*
 body.article {border: 1px solid red; padding-top: 0; padding-bottom: 0; height: auto;}
 header {border: 1px dashed lightgreen; height: auto;}
 .body {border: 1px dashed magenta; height: auto; padding: 0;}
@@ -12,170 +11,218 @@ main {border: 1px solid lime; height: auto; padding: 0; margin: 0;}
 article.doc {border: 1px dotted green; }
 */
 
-
-
-/* ---- page layouts start ---- */
-
-body.article {padding-top: 0; padding-bottom: 0; height: auto;}
-header {height: auto;}
-.body {height: auto; padding: 0;}
-main {height: auto; padding: 0; margin: 0;}
-
-article.doc { margin-top: 0;}
-
+  /* PRINCE RULES THAT NEED TO BE TURNED ON IN THE OUTPUT FOLDER CSS */
+  /* This rule adds an empty element forcing an additional page to appear before each topic */
+  /*
+  div.body h1 {
+    break-before: right;
+    prince-page-group: start;
+    string-set: chapter content();
+    counter-increment: chapter;
+    counter-reset: section;
+  }
 
     @page {
-        font-size: 11pt;
-        size: us-letter;
-        margin-top: 2cm;
-        margin-bottom: 2cm;
-        margin-inside: 3cm;
-        margin-outside: 2cm;
-    }
+    margin-inside: 3cm;
+    margin-outside: 2cm;
+  }
 
     @page body:left {
-        @bottom-left {
-            content: "Page " counter(page);
-            vertical-align: middle;
-            font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
-
-        }
-        @bottom-right {
-            content: "Chapter " counter(chapter) ": " string(chapter);
-            vertical-align: middle;
-            font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
-
-        }
+    @top-left {
+      content: "Chapter " counter(chapter) ": " string(chapter);
+      font-family: Segoe UI, Candara, Bitstream Vera Sans, DejaVu Sans, Trebuchet MS, Verdana, Verdana Ref, sans-serif
     }
+  }
+
     @page body:right {
-        @bottom-right {
-            content: "Page " counter(page);
-            vertical-align: middle;
-            font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
-        }
-        @bottom-left {
-            content: "Prospector User Guide";
-            vertical-align: middle;
-            font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+    @top-right {
+      content: "Chapter " counter(chapter) ": " string(chapter);
+      font-family: Segoe UI, Candara, Bitstream Vera Sans, DejaVu Sans, Trebuchet MS, Verdana, Verdana Ref, sans-serif
+    }
+  }
 
-        }
+  */
+  /* END PRINCE RULES THAT NEED TO BE TURNED ON IN THE OUTPUT FOLDER CSS */
+
+  /* ---- page layouts start ---- */
+
+  body.article {
+    padding-top: 0;
+    padding-bottom: 0;
+    height: auto;
+  }
+
+  header {
+    height: auto;
+  }
+
+  .body {
+    height: auto;
+    padding: 0;
+  }
+
+  main {
+    height: auto;
+    padding: 0;
+    margin: 0;
+  }
+
+  article.doc {
+    margin-top: 0;
+  }
+
+  @page {
+    font-size: 11pt;
+    size: us-letter;
+    margin-top: 2cm;
+    margin-bottom: 2cm;
+  }
+
+  @page body {
+    border-bottom: thin black solid;
+  }
+
+  @page body:left {
+    @bottom-left {
+      content: "Page "counter(page);
+      vertical-align: middle;
+      font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
     }
 
-    @page body {
-        border-bottom: thin black solid;
+    @bottom-right {
+      content: "GALT Inc";
+      vertical-align: middle;
+      font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+    }
+  }
+
+
+  @page body:right {
+    @bottom-right {
+      content: "Page " counter(page);
+      vertical-align: middle;
+      font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
     }
 
-    /* Showing this removes the generated footer text from the first page of the topic
-    @page body:first {
-        margin-top: 10%;
-        @bottom-left { content: normal; }
-        @bottom-right { content: normal; }
-        border: none;
+    @bottom-left {
+      content: "Prospector User Guide";
+      vertical-align: middle;
+      font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+    }
+  }
+
+
+
+  /* Showing this removes the generated footer text from the first page of the topic
+@page body:first {
+    margin-top: 10%;
+    @bottom-left { content: normal; }
+    @bottom-right { content: normal; }
+    border: none;
+}
+
+*/
+  @page body:blank {
+    @bottom-left {
+      content: normal;
     }
 
-    */
-    @page body:blank {
-        @bottom-left { content: normal; }
-        @bottom-right { content: normal; }
-        border: none;
+    @bottom-right {
+      content: normal;
     }
 
-        .doc>h1::before {content: "Chapter " counter(chapter) ": ";}
+    border: none;
+  }
 
+  .doc > h1::before {
+    content: "Chapter "counter(chapter) ": ";
+  }
 
+  div.body h2 {
+    string-set: section content();
+    counter-increment: section;
+  }
 
+  div.body h2::before {
+    content: counter(chapter) "."counter(section) " ";
+  }
 
+  /* Splits the cover page into a front and back with colophon.adoc on the back */
+    #cover-legal { break-before: page; }
 
-/*This rule adds an empty element forcing an additional page to appear before each topic*/
-    div.body h1 {
-        break-before: right;
-        prince-page-group: start;
-        string-set: chapter content();
-        counter-increment: chapter;
-        counter-reset: section;
-    }
+  /* ---- page layouts end ---- */
 
+  .hide-for-print { display: none !important; }
 
+  html {
+    font-size: 0.9375em;
+    font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+  }
 
+  article {
+    padding: 0;
+  }
 
+  .doc > h1.page:first-child {
+    font-size: 30pt;
+    margin-top: 0;
+    position: relative;
+    bottom: 20pt;
+  }
 
-    div.body h2 {
-        string-set: section content();
-        counter-increment: section;
-    }
-    div.body h2::before {
-        content: counter(chapter) "." counter(section) " ";
-    }
-    */
+  /* Sets the topic heading size */
 
-/* ---- page layouts end ---- */
+  a {
+    color: inherit !important;
+    text-decoration: underline;
+  }
 
+  a.bare,
+  a[href^="#"],
+  a[href^="mailto:"] {
+    text-decoration: none;
+  }
 
+  #topbar-nav,
+  .nav-container,
+  .toolbar,
+  .navbar,
+  .navbar-item,
+  header,
+  footer {
+    display: none;
+  }
 
-    .hide-for-print {
-        display: none !important
-    }
+  div.body {
+    page: body;
+  }
 
-    html {
-        font-size: .9375em
-        font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
-    }
+  .doc {
+    color: inherit;
+    margin: auto;
+    max-width: none;
+    padding-bottom: 2rem;
+  }
 
-    article {padding: 0;}
+  .doc .listingblock code[data-lang]::before { display: block; }
 
-    .doc>h1.page:first-child {font-size: 30pt; margin-top: 0; position: relative; bottom: 20pt;} /* Sets the topic heading size */
+  img,
+  object,
+  svg,
+  tr {
+    page-break-inside: avoid;
+  }
 
-    a {
-        color: inherit !important;
-        text-decoration: underline
-    }
+  thead {
+    display: table-header-group;
+  }
 
-    a.bare,
-    a[href^="#"],
-    a[href^="mailto:"] {
-        text-decoration: none
-    }
-
-
-    #topbar-nav,
-    .nav-container, .toolbar, .navbar, .navbar-item, header, footer  {display: none}
-
-
-    div.body {
-        page: body;
-    }
-
-
-
-    .doc {
-        color: inherit;
-        margin: auto;
-        max-width: none;
-        padding-bottom: 2rem
-    }
-
-    .doc .listingblock code[data-lang]:before {
-        display: block
-    }
-
-   img,
-    object,
-    svg,
-    tr {
-        page-break-inside: avoid
-    }
-
-    thead {
-        display: table-header-group
-    }
-
-    pre {
-        -webkit-hyphens: none;
-        -ms-hyphens: none;
-        hyphens: none;
-        white-space: pre-wrap
-    }
-
+  pre {
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+    white-space: pre-wrap;
+  }
 }
 
 /* ---- END PRINT STYLES ---- */
