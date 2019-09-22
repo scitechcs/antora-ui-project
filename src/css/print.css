@@ -222,4 +222,37 @@ article.doc {border: 1px dotted green; }
   }
 }
 
+/* ---- TOC PRINT STYLES FOR PRINCEXML ---- */
+
+#toc {
+  display: block;
+  margin-top: 0;
+}
+
+#toc ul {
+  margin-left: 0;
+  padding-left: 0;
+  list-style-type: none;
+  line-height: 20pt;
+}
+
+#toc ul li a {
+  padding-left: 0;
+  margin-left: 0;
+  padding-right: 0;
+  font-weight: normal;
+}
+
+#toc ul li ul li a {
+  padding-left: 0;
+  margin-left: 20pt;
+  padding-right: 0;
+  font-weight: normal;
+}
+
+#toc ul li a[href]::after { content: leader(".") target-counter(attr(href), page); }
+
+/* ---- PAGINATION STYLES FOR PRINCEXML ---- */
+h2 { page-break-before: always; }
+
 /* ---- END PRINT STYLES ---- */
