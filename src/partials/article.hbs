@@ -16,13 +16,13 @@ If you typed the URL of this page manually, please double check that you entered
 {{/if}}
 <div class="navbar-item">
   {{#if page.parent}}
-  <span class="control"><a class="button is-primary" href="{{{siteRootPath}}}{{{page.parent.url}}}">Parent</a></span>&nbsp;&nbsp;
+  <span class="control"><a class="button is-primary" href="{{{siteRootPath}}}{{{page.parent.url}}}">Parent&nbsp;&#8593;</a></span>&nbsp;&nbsp;
   {{/if}}
   {{#if page.previous}}
-  <span class="control"><a class="button is-primary" href="{{{siteRootPath}}}{{{page.previous.url}}}">Prev</a></span>&nbsp;&nbsp;
+  <span class="control"><a class="button is-primary" href="{{{siteRootPath}}}{{{page.previous.url}}}">&#8592;&nbsp;Prev</a></span>&nbsp;&nbsp;
   {{/if}}
   {{#if page.next}}
-  <span class="control"><a class="button is-primary" href="{{{siteRootPath}}}{{{page.next.url}}}">Next</a></span>
+  <span class="control"><a class="button is-primary" href="{{{siteRootPath}}}{{{page.next.url}}}">Next&nbsp;&#8594;</a></span>
   {{/if}}
 </div>
 </article>
