@@ -99,7 +99,7 @@
 .doc p,
 .doc :not(td) > .content,
 .doc .tableblock thead {
-  hyphens: auto;
+  hyphens: manual;
 }
 
 .doc a {
@@ -256,6 +256,8 @@
   background-color: var(--caution-color);
   color: var(--caution-on-color);
 }
+
+.doc .admonitionblock.caution .icon i::before {content:url('caution.svg')}
 
 .doc .admonitionblock.important .icon {
   background-color: var(--important-color);
