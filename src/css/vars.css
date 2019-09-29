@@ -26,7 +26,7 @@
   --body-line-height: 1.15;
   --body-font-color: var(--color-jet-70);
   --body-font-family: "Lato", sans-serif;
-  --body-font-weight-bold: 500;
+  --body-font-weight-bold: 700;
   --monospace-font-family: "Roboto Mono", monospace;
   --monospace-font-weight-bold: 500;
   /* base */
@@ -68,7 +68,7 @@
   --note-on-color: var(--color-white);
   --tip-color: #41af46;
   --tip-on-color: var(--color-white);
-  --warning-color: #e18114;
+  --warning-color: orange;
   --warning-on-color: var(--color-white);
   /* doc */
   --doc-font-color: var(--color-jet-50);
