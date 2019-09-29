@@ -127,8 +127,6 @@ article.doc {border: 1px dotted green; }
     @bottom-right {
       content: normal;
     }
-
-    border: none;
   }
 
   .doc > h1::before {
@@ -144,7 +142,7 @@ article.doc {border: 1px dotted green; }
     content: counter(chapter) "."counter(section) " ";
   }
 
-  /* Splits the cover page into a front and back with colophon.adoc on the back */
+  /* Splits the cover page into a front and back with colophon.adoc on the back along with the div in cover.adoc */
   #cover-legal { break-before: page; }
 
   /* ---- page layouts end ---- */
@@ -220,39 +218,57 @@ article.doc {border: 1px dotted green; }
     hyphens: none;
     white-space: pre-wrap;
   }
-}
 
-/* ---- TOC PRINT STYLES FOR PRINCEXML ---- */
+  /* ---- TOC PRINT STYLES FOR PRINCEXML ---- */
 
-#toc {
-  display: block;
-  margin-top: 0;
-}
+  #toc {
+    display: block;
+    margin-top: 0;
+  }
 
-#toc ul {
-  margin-left: 0;
-  padding-left: 0;
-  list-style-type: none;
-  line-height: 20pt;
-}
+  #toc ul {
+    margin-left: 0;
+    padding-left: 0;
+    list-style-type: none;
+    line-height: 20pt;
+  }
 
-#toc ul li a {
-  padding-left: 0;
-  margin-left: 0;
-  padding-right: 0;
-  font-weight: normal;
-}
+  #toc ul li a {
+    padding-left: 0;
+    margin-left: 0;
+    padding-right: 0;
+    font-weight: normal;
+  }
 
-#toc ul li ul li a {
-  padding-left: 0;
-  margin-left: 20pt;
-  padding-right: 0;
-  font-weight: normal;
-}
+  #toc ul li ul li a {
+    padding-left: 0;
+    margin-left: 20pt;
+    padding-right: 0;
+    font-weight: normal;
+  }
 
-#toc ul li a[href]::after { content: leader(".") target-counter(attr(href), page); }
+  #toc ul li a[href]::after { content: leader(".") target-counter(attr(href), page); }
 
-/* ---- PAGINATION STYLES FOR PRINCEXML ---- */
-h2 { page-break-before: always; }
+  /* ---- PAGINATION STYLES FOR PRINCEXML ---- */
+  h2 { page-break-before: always; }
 
-/* ---- END PRINT STYLES ---- */
+  .cover-image img {
+    margin: 2in auto 0 auto;
+    width: 5in;
+    display: block;
+  }
+
+  .imageblock .content {
+    margin: 0 auto;
+    display: block;
+  }
+
+  #blue-stripe {
+    height: 1in;
+    width: 100%;
+    background-color: #104b87;
+    display: block;
+  }
+
+  /* ---- END PRINT STYLES ---- */
+} /* This is the closing bracket for media print styles */

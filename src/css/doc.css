@@ -28,7 +28,7 @@
 }
 
 .doc > h1.page:first-child {
-  font-size: calc(36 / var(--rem-base) * 1.5rem);
+  font-size: 3rem;
   margin: 1.5rem 0;
 }
 
@@ -257,7 +257,7 @@
   color: var(--caution-on-color);
 }
 
-.doc .admonitionblock.caution .icon i::before { content: url('../img/caution.svg'); } /* not active yet as there is no warning exclamation image there */
+/* .doc .admonitionblock.caution .icon i::before { content: url('../img/caution.svg'); } not active yet as there is no warning exclamation image there */
 
 .doc .admonitionblock.important .icon {
   background-color: var(--important-color);
@@ -663,3 +663,5 @@ kbd,
   padding: 0;
   display: block;
 }
+
+.cover-image img { width: 400px; }
