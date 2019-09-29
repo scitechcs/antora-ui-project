@@ -257,7 +257,7 @@
   color: var(--caution-on-color);
 }
 
-.doc .admonitionblock.caution .icon i::before {content:url('caution.svg')}
+.doc .admonitionblock.caution .icon i::before { content: url('../img/caution.svg'); } /* not active yet as there is no warning exclamation image there */
 
 .doc .admonitionblock.important .icon {
   background-color: var(--important-color);
