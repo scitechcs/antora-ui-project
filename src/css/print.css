@@ -1,55 +1,11 @@
-/*  ---- PRINT MEDIA STYLES ---- */
 @media print {
-
-  /* ---- element visibility helper styles ---- */
-  /*
-body.article {border: 1px solid red; padding-top: 0; padding-bottom: 0; height: auto;}
-header {border: 1px dashed lightgreen; height: auto;}
-.body {border: 1px dashed magenta; height: auto; padding: 0;}
-main {border: 1px solid lime; height: auto; padding: 0; margin: 0;}
-.toolbar {border: 1px solid purple;}
-article.doc {border: 1px dotted green; }
-*/
-
-  /* PRINCE RULES THAT NEED TO BE TURNED ON IN THE OUTPUT FOLDER CSS */
-  /* This rule adds an empty element forcing an additional page to appear before each topic */
-  /*
-  div.body h1 {
-    break-before: right;
-    prince-page-group: start;
-    string-set: chapter content();
-    counter-increment: chapter;
-    counter-reset: section;
-  }
-
-    @page {
-    margin-inside: 3cm;
-    margin-outside: 2cm;
-  }
-
-    @page body:left {
-    @top-left {
-      content: "Chapter " counter(chapter) ": " string(chapter);
-      font-family: Segoe UI, Candara, Bitstream Vera Sans, DejaVu Sans, Trebuchet MS, Verdana, Verdana Ref, sans-serif
-    }
-  }
-
-    @page body:right {
-    @top-right {
-      content: "Chapter " counter(chapter) ": " string(chapter);
-      font-family: Segoe UI, Candara, Bitstream Vera Sans, DejaVu Sans, Trebuchet MS, Verdana, Verdana Ref, sans-serif
-    }
-  }
-
-  */
-  /* END PRINCE RULES THAT NEED TO BE TURNED ON IN THE OUTPUT FOLDER CSS */
 
   /* ---- page layouts start ---- */
 
   body.article {
-    padding-top: 0;
-    padding-bottom: 0;
     height: auto;
+    padding-bottom: 0;
+    padding-top: 0;
   }
 
   header {
@@ -63,8 +19,8 @@ article.doc {border: 1px dotted green; }
 
   main {
     height: auto;
-    padding: 0;
     margin: 0;
+    padding: 0;
   }
 
   article.doc {
@@ -73,9 +29,9 @@ article.doc {border: 1px dotted green; }
 
   @page {
     font-size: 11pt;
-    size: us-letter;
-    margin-top: 2cm;
     margin-bottom: 2cm;
+    margin-top: 2cm;
+    size: us-letter;
   }
 
   @page body {
@@ -85,22 +41,22 @@ article.doc {border: 1px dotted green; }
   @page body:left {
     @bottom-left {
       content: "Page "counter(page);
-      vertical-align: middle;
       font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+      vertical-align: middle;
     }
 
     @bottom-right {
       content: "GALT Inc";
-      vertical-align: middle;
       font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+      vertical-align: middle;
     }
   }
 
   @page body:right {
     @bottom-right {
       content: "Page " counter(page);
-      vertical-align: middle;
       font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+      vertical-align: middle;
     }
 
     @bottom-left {
@@ -111,14 +67,14 @@ article.doc {border: 1px dotted green; }
   }
 
   /* Showing this removes the generated footer text from the first page of the topic
-@page body:first {
+  @page body:first {
     margin-top: 10%;
     @bottom-left { content: normal; }
     @bottom-right { content: normal; }
     border: none;
-}
+  }
+ */
 
-*/
   @page body:blank {
     @bottom-left {
       content: normal;
@@ -141,9 +97,6 @@ article.doc {border: 1px dotted green; }
   div.body h2::before {
     content: counter(chapter) "."counter(section) " ";
   }
-
-  /* Splits the cover page into a front and back with colophon.adoc on the back along with the div in cover.adoc */
-  #cover-legal { break-before: page; }
 
   /* ---- page layouts end ---- */
 
@@ -228,23 +181,23 @@ article.doc {border: 1px dotted green; }
 
   #toc ul {
     margin-left: 0;
-    padding-left: 0;
-    list-style-type: none;
     line-height: 20pt;
+    list-style-type: none;
+    padding-left: 0;
   }
 
   #toc ul li a {
-    padding-left: 0;
-    margin-left: 0;
-    padding-right: 0;
     font-weight: normal;
+    margin-left: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   #toc ul li ul li a {
-    padding-left: 0;
-    margin-left: 20pt;
-    padding-right: 0;
     font-weight: normal;
+    margin-left: 20pt;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   #toc ul li a[href]::after { content: leader(".") target-counter(attr(href), page); }
@@ -253,22 +206,71 @@ article.doc {border: 1px dotted green; }
   h2 { page-break-before: always; }
 
   .cover-image img {
+    display: block;
     margin: 2in auto 0 auto;
     width: 5in;
-    display: block;
   }
 
   .imageblock .content {
-    margin: 0 auto;
     display: block;
+    margin: 0 auto;
   }
 
   #blue-stripe {
-    height: 1in;
-    width: 100%;
     background-color: #104b87;
     display: block;
+    height: 1in;
+    width: 100%;
+    z-index: 10;
   }
 
-  /* ---- END PRINT STYLES ---- */
-} /* This is the closing bracket for media print styles */
+  #blue-stripe h2 {
+    page-break-before: avoid;
+    z-index: 99;
+  }
+}
+/* This is the closing bracket for media print styles */
+
+/* ---- element visibility helper styles ---- */
+/*
+body.article {border: 1px solid red; padding-top: 0; padding-bottom: 0; height: auto;}
+header {border: 1px dashed lightgreen; height: auto;}
+.body {border: 1px dashed magenta; height: auto; padding: 0;}
+main {border: 1px solid lime; height: auto; padding: 0; margin: 0;}
+.toolbar {border: 1px solid purple;}
+article.doc {border: 1px dotted green; }
+*/
+
+/* PRINCE RULES THAT NEED TO BE TURNED ON IN THE OUTPUT FOLDER CSS BECAUSE ANTORA LINT DOESN'T ALLOW THEM */
+/* This rule adds an empty element forcing an additional page to appear before each topic */
+
+/*
+  div.body h1 {
+    break-before: right;
+    prince-page-group: start;
+    string-set: chapter content();
+    counter-increment: chapter;
+    counter-reset: section;
+  }
+
+    @page {
+    margin-inside: 3cm;
+    margin-outside: 2cm;
+  }
+
+    @page body:left {
+    @top-left {
+      content: "Chapter " counter(chapter) ": " string(chapter);
+      font-family: Segoe UI, Candara, Bitstream Vera Sans, DejaVu Sans, Trebuchet MS, Verdana, Verdana Ref, sans-serif
+    }
+  }
+
+    @page body:right {
+    @top-right {
+      content: "Chapter " counter(chapter) ": " string(chapter);
+      font-family: Segoe UI, Candara, Bitstream Vera Sans, DejaVu Sans, Trebuchet MS, Verdana, Verdana Ref, sans-serif
+    }
+  }
+
+*/
+/* END PRINCE RULES THAT NEED TO BE TURNED ON IN THE OUTPUT FOLDER CSS */
