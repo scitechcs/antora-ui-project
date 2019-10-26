@@ -665,3 +665,5 @@ kbd,
 }
 
 .cover-image img { width: 400px; }
+
+.border {border: 1px solid --color-smoke-90;}
