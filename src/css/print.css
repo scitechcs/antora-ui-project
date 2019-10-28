@@ -222,14 +222,14 @@
 }
 /* This is the closing bracket for media print styles */
 
-  /* Showing this removes the generated footer text from the first page of the topic
+/* Showing this removes the generated footer text from the first page of the topic
   @page body:first {
     margin-top: 10%;
     @bottom-left { content: normal; }
     @bottom-right { content: normal; }
     border: none;
   }
- */
+*/
 
 /* ---- element visibility helper styles ---- */
 /*
