@@ -27,6 +27,8 @@
   margin: 1rem 0 0;
 }
 
+.doc h2 { font-size: 2em; }
+
 .doc > h1.page:first-child {
   font-size: 3rem;
   margin: 1.5rem 0;
@@ -666,7 +668,7 @@ kbd,
 
 .cover-image img { width: 400px; }
 
-.border { border: 1px solid var(--color-smoke-90); }
+.border img { border: 1px solid var(--color-smoke-90); }
 
 .address { margin-top: 1em; }
 
