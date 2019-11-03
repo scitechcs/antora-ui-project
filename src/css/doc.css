@@ -677,6 +677,11 @@ kbd,
   margin-top: 0;
 }
 
-.doc table, th, td { border: 1px solid #e1e1e1; }
+.doc table,
+th,
+td { border: 1px solid #e1e1e1; }
 
-.doc th { background-color: #333; color: #fff; }
+.doc th {
+  background-color: #333;
+  color: #fff;
+}
