@@ -56,14 +56,18 @@
 .edit-this-page {
   display: none;
   padding-right: 0.5rem;
-}
+} /* Hides the Edit this page link in the top bar created in the toolbar.hbs file */
 
+/*
 @media screen and (min-width: 1024px) {
   .edit-this-page {
     display: block;
   }
 }
+*/
 
 .toolbar .edit-this-page a {
   color: var(--toolbar-muted-color);
 }
+
+.navbar-end > .navbar-item { display: none; } /* Hides the Home and Links dropdowns in the top bar created in the toolbar.hbs file */
