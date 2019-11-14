@@ -56,22 +56,6 @@
   font-weight: var(--alt-heading-font-weight);
 }
 
-.doc h1 .anchor,
-.doc h2 .anchor,
-.doc h3 .anchor,
-.doc h4 .anchor,
-.doc h5 .anchor,
-.doc h6 .anchor {
-  position: absolute;
-  text-decoration: none;
-  width: 1.75ex;
-  margin-left: -1.5ex;
-  visibility: hidden;
-  font-size: 0.8em;
-  font-weight: normal;
-  padding-top: 0.05em;
-}
-
 .doc h1 .anchor::before,
 .doc h2 .anchor::before,
 .doc h3 .anchor::before,
