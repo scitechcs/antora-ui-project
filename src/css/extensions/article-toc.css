@@ -10,10 +10,13 @@
 .doc h6::before {
   display: block;
   content: " ";
-  height: 130px;
-  margin-top: -130px;
   visibility: hidden;
   overflow: hidden;
+}
+
+.doc h3::before {
+  height: 20px;
+  margin-top: 0;
 }
 
 .article-aside {
