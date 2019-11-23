@@ -3,9 +3,10 @@
   <head>
 {{> head defaultPageTitle="Untitled"}}
   </head>
-  <body class="article">
+  <body onload="highlight();" class="article" onload="if (document.getElementById('zoom_searchbox')) {document.getElementById('zoom_searchbox').focus();}">
 {{> header}}
 {{> body}}
 {{> footer}}
   </body>
+  <script type="text/javascript">highlight();</script>
 </html>
