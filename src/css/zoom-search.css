@@ -24,6 +24,7 @@
 .description {
   color: #008000;
   font-size: 100%;
+  margin: 0.5em 0;
 }
 
 .context { font-size: 100%; }
@@ -38,12 +39,12 @@
 
 .zoom_results_per_page {
   font-size: 80%;
-  margin-left: 10;
+  margin-left: 10px;
 }
 
 .zoom_match {
   font-size: 80%;
-  margin-left: 10;
+  margin-left: 10px;
 }
 
 .zoom_categories { font-size: 80%; }
@@ -79,8 +80,8 @@
 
 .result_image img {
   border: 0;
-  margin: 10;
-  width: 80;
+  margin: 10px;
+  width: 80px;
 }
 
 .result_block {
@@ -143,16 +144,16 @@
 
 .recommend_image img {
   border: 0;
-  margin: 10;
-  width: 80;
+  margin: 10px;
+  width: 80px;
 }
 
 .searchbox {
   height: 35px;
-  margin: 0;
+  margin: 0 20px 0 0;
   padding: 0;
   position: relative;
-  right: 20;
+  right: 20px;
   top: 15px;
 }
 
@@ -166,8 +167,8 @@
   border-top-left-radius: 5px;
   float: left;
   font-size: 1em;
-  padding: 0 0 0 10;
-  width: 400;
+  padding: 0 0 0 10px;
+  width: 500px;
 }
 
 .searchbox input[type=submit] {
@@ -190,22 +191,31 @@
 
 .search-body {
   font-size: 0.95em;
-  margin: 1em 2em 2em 2em;
+  margin: 10px auto;
+  max-width: 1200px;
 }    /* Moves the text to the right */
 
 .search-body ul {
   margin-left: 0;
   margin-top: 0;
-  padding-left: 20;
+  padding-left: 20px;
   padding-top: 0;
+}
+
+.search-body aside {
+  border: 1px solid #e1e1e1;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #fafafa;
+  font-size: 0.9em;
 }
 
 .search-body p { margin-bottom: 0.5em; }
 
-.result_block .description { margin-left: 20; }
+.result_block .description { margin-left: 20px; }
 
-.result_altblock .description { margin-left: 20; }
+.result_altblock .description { margin-left: 20px; }
 
-.result_block .infoline { margin-left: 20; }
+.result_block .infoline { margin-left: 20px; }
 
-.result_altblock .infoline { margin-left: 20; }
+.result_altblock .infoline { margin-left: 20px; }
