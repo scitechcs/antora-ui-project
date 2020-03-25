@@ -248,8 +248,8 @@
 /* .doc .admonitionblock.caution .icon i::before { content: url('../img/caution.svg'); } not active yet as there is no warning exclamation image there */
 
 .doc .admonitionblock.important .icon {
-  background-color: var(--important-color);
-  color: var(--important-on-color);
+  background-color: var(--note-color);
+  color: var(--note-on-color);
 }
 
 .doc .admonitionblock.note .icon {
