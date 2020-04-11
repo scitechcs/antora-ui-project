@@ -144,7 +144,7 @@
 .doc .sidebarblock,
 .doc .verseblock,
 .doc .quoteblock {
-  margin: 0.2rem 0 0;
+  margin: 0.5rem 0 0;
 }
 
 .doc table.tableblock {
@@ -197,7 +197,7 @@
 }
 
 .doc .admonitionblock {
-  margin: 1.4rem 0 0;
+  margin: 1rem 0 0;
 }
 
 .doc .admonitionblock p,
@@ -286,6 +286,10 @@
   align-items: flex-start;
 }
 
+.doc ol .imageblock { padding-left: 0.4rem; }
+
+.doc ul .imageblock { padding-left: 0.4rem; }
+
 .doc .imageblock img {
   display: block;
 }
@@ -294,6 +298,11 @@
 .doc .image > img {
   height: auto;
   max-width: 100%;
+}
+
+.videoblock {
+  padding-top: 0.5rem;
+  padding-left: 0.3rem;
 }
 
 #preamble .abstract blockquote {
@@ -342,13 +351,21 @@
 
 .doc ol,
 .doc ul {
-  margin: 0;
+  margin: 1rem 0 0 0;
   padding: 0 0 0 2rem;
 }
 
-.doc ol.decimal {
-  list-style-type: decimal-leading-zero;
+.doc ol ol,
+.doc ul ul {
+  margin: 0;
 }
+
+.doc ol ul,
+.doc ul ol {
+  margin: 0;
+}
+
+.doc ol.decimal { list-style-type: decimal-leading-zero; }
 
 .doc ol.loweralpha {
   list-style-type: lower-alpha;
